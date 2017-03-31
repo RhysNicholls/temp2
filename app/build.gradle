@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+repositories {
+    mavenCentral()
+    maven {
+        url "http://4thline.org/m2"
+    }
+}
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.example.rhysn.finalproject"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/beans.xml'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    android {
+        useLibrary 'org.apache.http.legacy'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //Tabs
+    //RecyclerView
+
+    // CardView
+
+    // Glide
+
+    //Serilizie
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7', changing: true
+    compile group: 'org.fourthline.cling', name: 'cling-core', version: '2.1.1'
+    compile group: 'org.fourthline.cling', name: 'cling-support', version: '2.1.1'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '8.1.18.v20150929'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '8.1.18.v20150929'
+    compile group: 'org.eclipse.jetty', name: 'jetty-client', version: '8.1.18.v20150929'
+    compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.14'
+
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:mediarouter-v7:25.3.0'
+    compile 'com.google.android.gms:play-services-cast-framework:10.2.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:cardview-v7:25.3.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.ms-square:expandableTextView:0.1.4'
+    compile 'org.jsoup:jsoup:1.10.2'
+    compile 'com.nanohttpd:nanohttpd-webserver:2.1.1'
+    compile 'com.android.support:support-v4:25.3.0'
+    testCompile 'junit:junit:4.12'
+}
